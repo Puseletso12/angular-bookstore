@@ -6,7 +6,13 @@
       [ngClass]="{ 'no-image': !book.thumbnailUrl }"
       (click)="goToDetails(book)"
     >
-      <img [src]="book.thumbnailUrl" />
+      <ng-container *ngIf="book.thumbnailUrl; else noImage">
+        <img [src]="book.thumbnailUrl" />
+      </ng-container>
+      <ng-template #noImage>
+        <img src="assets/no_image.png" />
+      </ng-template>
+
       <p>{{ book.title }}</p>
       <p style="color: #aaa; font-size: 0.8em">
         <strong>Authors</strong>{{ book.authors.join(",") }}

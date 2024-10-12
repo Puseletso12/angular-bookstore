@@ -14,19 +14,22 @@
   justify-content: center;
 }
 .book-card {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   height: auto;
   width: 200px;
   background-color: #ffff;
   border-radius: 10px;
   align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
   box-shadow: 5px 5px 5px 0 rgb(205, 205, 205);
+}
+.book-card:hover {
+  background-color: #f0f0f0;
 }
 .book-card img {
   width: auto;
   height: 150px;
   object-fit: contain;
-}
-.book-card.no-image {
-    background-color: #f8d7da;
 }

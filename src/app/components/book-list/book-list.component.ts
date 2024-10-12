@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { Book, BooksService } from '../../service/books.service';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [NgFor, NgClass],
+  imports: [NgFor, NgClass, NgIf],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css',
 })
 export class BookListComponent {
   books: Book[] = [];
 
-  constructor(private bookService: BooksService) {}
+  constructor(private bookService: BooksService, private router: Router) {}
   ngOnInit(): void {
     this.bookService.getBooks().subscribe((data) => {
       this.books = data;
@@ -20,5 +21,8 @@ export class BookListComponent {
     });
   }
 
-  goToDetails(book: Book) {}
+  goToDetails(book: Book) {
+    console.log(book._id);
+    this.router.navigate(['/book', book._id]);
+  }
 }
