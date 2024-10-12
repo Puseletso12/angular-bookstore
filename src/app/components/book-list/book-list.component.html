@@ -1,1 +1,16 @@
-<p>book-list works!</p>
+<div class="container">
+  <div class="book-list">
+    <div
+      class="book-card"
+      *ngFor="let book of books"
+      [ngClass]="{ 'no-image': !book.thumbnailUrl }"
+      (click)="goToDetails(book)"
+    >
+      <img [src]="book.thumbnailUrl" />
+      <p>{{ book.title }}</p>
+      <p style="color: #aaa; font-size: 0.8em">
+        <strong>Authors</strong>{{ book.authors.join(",") }}
+      </p>
+    </div>
+  </div>
+</div>
