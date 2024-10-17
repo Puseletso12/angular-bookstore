@@ -10,3 +10,9 @@ label {
   display: block;
   margin-bottom: 5px;
 }
+.error-box {
+}
+small {
+  color: red;
+  font-size: 12px;
+}
